@@ -2,8 +2,8 @@ package run;
 
 import mvc.ReadOnlyTemperatureController;
 import mvc.ReadOnlyTemperatureModel;
-import mvc.TemperatureControllerInterface;
-import mvc.TemperatureModelInterface;
+import interfaces.TemperatureControllerInterface;
+import interfaces.TemperatureModelInterface;
 
 public class ReadOnlyTemperatureTest {
 

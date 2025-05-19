@@ -1,6 +1,11 @@
 package mvc;
 
-public class StandardTemperatureController{
+import interfaces.Observer;
+import interfaces.Subject;
+import interfaces.TemperatureControllerInterface;
+import interfaces.TemperatureModelInterface;
+
+public class StandardTemperatureController implements TemperatureControllerInterface{
     /*TODO: Ensure that it implements the right interface*/
 
     TemperatureModelInterface model;
@@ -11,6 +16,16 @@ public class StandardTemperatureController{
         view.createView();
         view.createControls();
         /*TODO: Prepare UI */
+    }
+
+    @Override
+    public void start(){
+        //todo
+    }
+
+    @Override
+    public void stop(){
+        //todo
     }
 
     /*TODO: Complete with the interface methods. Some tips below.*/

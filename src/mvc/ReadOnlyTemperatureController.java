@@ -1,6 +1,11 @@
 package mvc;
 
-public class ReadOnlyTemperatureController{
+import interfaces.Observer;
+import interfaces.Subject;
+import interfaces.TemperatureControllerInterface;
+import interfaces.TemperatureModelInterface;
+
+public class ReadOnlyTemperatureController implements TemperatureControllerInterface {
     /*TODO: Ensure that it implements the right interface*/
 
     private TemperatureView view;
@@ -11,6 +16,26 @@ public class ReadOnlyTemperatureController{
         view.createView();
         view.createControls();
         /*TODO: Prepare UI */
+    }
+
+    @Override
+    public void start(){
+        //do something
+    }
+
+    @Override
+    public void stop(){
+        //do something
+    }
+
+    public void registerObs(Observer o){
+        //todo
+    }
+    public void removeObs(Observer o){
+        //todo
+    }
+    public void notifyObs(String content){
+        //todo
     }
 
     /*TODO: Complete with the interface methods. Some tips below.*/

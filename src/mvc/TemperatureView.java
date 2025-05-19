@@ -1,11 +1,15 @@
 package mvc;
 
+import interfaces.Observer;
+import interfaces.TemperatureControllerInterface;
+import interfaces.TemperatureModelInterface;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TemperatureView implements ActionListener {
+public class TemperatureView implements ActionListener, Observer {
     /* TODO: Ensure that it implements the right interface, other than ActionListener*/
 
     private TemperatureModelInterface model;
@@ -28,6 +32,10 @@ public class TemperatureView implements ActionListener {
     private JLabel currentTempLabel;
     private JLabel currentTemp; //Displays current temperature
 
+    @Override
+    public void update(){
+
+    }
 
     public TemperatureView(TemperatureControllerInterface controller, TemperatureModelInterface model) {
         /*TODO: Complete this constructor. Remember that the view is an observer of the model.*/
@@ -153,8 +161,5 @@ public class TemperatureView implements ActionListener {
         * - decreaseTempButton
         * - setTempButton
         * */
-        }
     }
-
-
 }

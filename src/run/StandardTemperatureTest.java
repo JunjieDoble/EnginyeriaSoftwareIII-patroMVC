@@ -2,8 +2,8 @@ package run;
 
 import mvc.StandardTemperatureController;
 import mvc.StandardTemperatureModel;
-import mvc.TemperatureControllerInterface;
-import mvc.TemperatureModelInterface;
+import interfaces.TemperatureControllerInterface;
+import interfaces.TemperatureModelInterface;
 
 public class StandardTemperatureTest {
 
