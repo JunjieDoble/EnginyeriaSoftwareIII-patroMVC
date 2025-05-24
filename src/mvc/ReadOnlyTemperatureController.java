@@ -52,4 +52,19 @@ public class ReadOnlyTemperatureController implements TemperatureControllerInter
      * It should also prepare the UI, enabling and disabling the right elements
      *
      *  */
+
+    @Override
+    public void increaseTemperature() {
+
+    }
+
+    @Override
+    public void decreaseTemperature() {
+
+    }
+
+    @Override
+    public void setTemperature(int temp) {
+
+    }
 }

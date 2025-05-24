@@ -39,6 +39,8 @@ public class TemperatureView implements ActionListener, Observer {
 
     public TemperatureView(TemperatureControllerInterface controller, TemperatureModelInterface model) {
         /*TODO: Complete this constructor. Remember that the view is an observer of the model.*/
+        this.controller = controller;
+        this.model = model;
     }
 
     public void createView() {

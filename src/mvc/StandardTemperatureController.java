@@ -43,6 +43,19 @@ public class StandardTemperatureController implements TemperatureControllerInter
      *
      *  */
 
+    @Override
+    public void increaseTemperature() {
 
+    }
+
+    @Override
+    public void decreaseTemperature() {
+
+    }
+
+    @Override
+    public void setTemperature(int temp) {
+
+    }
 
 }

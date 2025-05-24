@@ -71,4 +71,18 @@ public class ReadOnlyTemperatureModel implements Runnable, TemperatureModelInter
         //todo
     }
 
+    @Override
+    public void setTargetTemperature(int temp) {
+
+    }
+
+    @Override
+    public int getTargetTemperature() {
+        return 0;
+    }
+
+    @Override
+    public int getCurrentTemperature() {
+        return 0;
+    }
 }
