@@ -1,11 +1,11 @@
 package mvc;
 
+import interfaces.Observer;
 import interfaces.TemperatureModelInterface;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Observer;
 
 import interfaces.Subject;
 
@@ -13,13 +13,13 @@ public class ReadOnlyTemperatureModel implements Runnable, TemperatureModelInter
     /*TODO: Ensure that ReadOnlyTemperatureModel implements the corresponding interface (other than Runnable)*/
 
     private int currentTemperature;
-    private List<Observer> observerList;
+    private List<Observer> observers;
     private Thread thread;
     private boolean stopThread;
 
     public ReadOnlyTemperatureModel(){
         Random rand = new Random();
-        observerList = new ArrayList<>();
+        observers = new ArrayList<>();
         currentTemperature = rand.nextInt(-30,40);
     }
 
@@ -59,16 +59,18 @@ public class ReadOnlyTemperatureModel implements Runnable, TemperatureModelInter
     }
 
     @Override
-    public void registerObs(interfaces.Observer o){
-        //todo
+    public void registerObs(Observer o){
+        observers.add(o);
     }
     @Override
-    public void removeObs(interfaces.Observer o){
-        //todo
+    public void removeObs(Observer o){
+        observers.remove(o);
     }
     @Override
     public void notifyObs(String content){
-        //todo
+        for(interfaces.Observer o:observers){
+            o.update(content);
+        }
     }
 
     @Override
@@ -83,6 +85,6 @@ public class ReadOnlyTemperatureModel implements Runnable, TemperatureModelInter
 
     @Override
     public int getCurrentTemperature() {
-        return 0;
+        return currentTemperature;
     }
 }

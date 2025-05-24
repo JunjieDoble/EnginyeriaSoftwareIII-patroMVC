@@ -33,8 +33,8 @@ public class TemperatureView implements ActionListener, Observer {
     private JLabel currentTemp; //Displays current temperature
 
     @Override
-    public void update(){
-
+    public void update(String content){
+        System.out.println(content);
     }
 
     public TemperatureView(TemperatureControllerInterface controller, TemperatureModelInterface model) {

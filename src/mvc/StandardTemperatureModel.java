@@ -1,11 +1,11 @@
 package mvc;
 
+import interfaces.Observer;
 import interfaces.TemperatureModelInterface;
 import interfaces.Subject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observer;
 import java.util.Random;
 
 public class StandardTemperatureModel implements Runnable, TemperatureModelInterface, Subject{
@@ -58,30 +58,32 @@ public class StandardTemperatureModel implements Runnable, TemperatureModelInter
         stopThread = false; //We reset stopThread
     }
     @Override
-    public void registerObs(interfaces.Observer o){
-        //todo
+    public void registerObs(Observer o){
+        observers.add(o);
     }
     @Override
-    public void removeObs(interfaces.Observer o){
-        //todo
+    public void removeObs(Observer o){
+        observers.remove(o);
     }
     @Override
     public void notifyObs(String content){
-        //todo
+        for(Observer o:observers){
+            o.update(content);
+        }
     }
 
     @Override
     public void setTargetTemperature(int temp) {
-
+        targetTemperature = temp;
     }
 
     @Override
     public int getTargetTemperature() {
-        return 0;
+        return targetTemperature;
     }
 
     @Override
     public int getCurrentTemperature() {
-        return 0;
+        return currentTemperature;
     }
 }
