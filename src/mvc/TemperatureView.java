@@ -163,5 +163,17 @@ public class TemperatureView implements ActionListener, Observer {
         * - decreaseTempButton
         * - setTempButton
         * */
+
+        Object source = event.getSource();
+
+        if(source == setTempButton){
+            int temp = Integer.parseInt(tempTextField.getText());
+            controller.setTemperature(temp);
+        }
+        else if (source == increaseTempButton) {
+            controller.increaseTemperature();
+        } else if (source == decreaseTempButton) {
+            controller.decreaseTemperature();
+        }
     }
 }

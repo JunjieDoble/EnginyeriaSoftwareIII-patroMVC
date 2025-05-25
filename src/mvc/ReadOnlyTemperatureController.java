@@ -13,6 +13,8 @@ public class ReadOnlyTemperatureController implements TemperatureControllerInter
 
     public ReadOnlyTemperatureController(TemperatureModelInterface tempModel){
        /*TODO: Create view and assign class attributes*/
+        this.model = tempModel;
+        this.view = new TemperatureView(this, model);
         view.createView();
         view.createControls();
         /*TODO: Prepare UI */
@@ -21,11 +23,13 @@ public class ReadOnlyTemperatureController implements TemperatureControllerInter
     @Override
     public void start(){
         //do something
+        model.on();
     }
 
     @Override
     public void stop(){
         //do something
+        model.off();
     }
 
     public void registerObs(Observer o){
