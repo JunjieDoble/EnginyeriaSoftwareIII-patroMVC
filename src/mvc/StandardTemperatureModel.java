@@ -51,6 +51,12 @@ public class StandardTemperatureModel implements Runnable, TemperatureModelInter
                 Thread.sleep(3000);
                 //TODO: Add code here to ensure that current temperature moves towards target temperature (in +1 or -1 increments).
                 //TODO: View should be updated
+                if (currentTemperature < targetTemperature) {
+                    currentTemperature += 1;
+                } else if (currentTemperature > targetTemperature) {
+                    currentTemperature -= 1;
+                }
+                notifyObs(String.valueOf(currentTemperature), String.valueOf(targetTemperature));
             } catch (Exception e) {
 
             }
@@ -66,9 +72,9 @@ public class StandardTemperatureModel implements Runnable, TemperatureModelInter
         observers.remove(o);
     }
     @Override
-    public void notifyObs(String content){
+    public void notifyObs(String current, String target){
         for(Observer o:observers){
-            o.update(content);
+            o.update(current, target);
         }
     }
 
@@ -77,7 +83,7 @@ public class StandardTemperatureModel implements Runnable, TemperatureModelInter
         targetTemperature = temp;
 
         //notificar a la view?
-        notifyObs("Target temperature set to: " + targetTemperature);
+        notifyObs(String.valueOf(currentTemperature),String.valueOf(targetTemperature));
     }
 
     @Override

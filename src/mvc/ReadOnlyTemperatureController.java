@@ -19,19 +19,26 @@ public class ReadOnlyTemperatureController implements TemperatureControllerInter
         this.view = new TemperatureView(this, model);
         view.createView();
         view.createControls();
+
+        if (model instanceof Subject) {
+            ((Subject) model).registerObs(view);
+        }
+
         /*TODO: Prepare UI */
+        view.disableAll();
     }
 
     @Override
     public void start(){
-        //do something
         model.on();
+        view.enableMonitoringMode();
     }
 
     @Override
     public void stop(){
         //do something
         model.off();
+        view.disableAll();
     }
 
     /*TODO: Complete with the interface methods. Some tips below.*/

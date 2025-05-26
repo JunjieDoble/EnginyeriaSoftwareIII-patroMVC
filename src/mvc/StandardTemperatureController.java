@@ -18,21 +18,26 @@ public class StandardTemperatureController implements TemperatureControllerInter
         view.createView();
         view.createControls();
 
+        if (model instanceof Subject) {
+            ((Subject) model).registerObs(view);
+        }
+
         /*TODO: Prepare UI */
-        view.enableControlMode();
-        view.enableControlMode();
+        view.disableAll();
     }
 
     @Override
     public void start(){
         //todo
         model.on();
+        view.enableControlMode();
     }
 
     @Override
     public void stop(){
         //todo
         model.off();
+        view.disableAll();
     }
 
     /*TODO: Complete with the interface methods. Some tips below.*/
@@ -52,14 +57,14 @@ public class StandardTemperatureController implements TemperatureControllerInter
 
     @Override
     public void increaseTemperature() {
-        int currentTemp = model.getCurrentTemperature();
+        int currentTemp = model.getTargetTemperature();
         model.setTargetTemperature(currentTemp+1);
     }
 
     @Override
     public void decreaseTemperature() {
-        int currentTemp = model.getCurrentTemperature();
-        model.setTargetTemperature(currentTemp+1);
+        int currentTemp = model.getTargetTemperature();
+        model.setTargetTemperature(currentTemp-1);
     }
 
     @Override

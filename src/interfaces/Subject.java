@@ -4,6 +4,6 @@ public interface Subject {
 
     void registerObs(Observer o);
     void removeObs(Observer o);
-    void notifyObs(String content);
+    void notifyObs(String current, String target);
 
 }

@@ -50,6 +50,7 @@ public class ReadOnlyTemperatureModel implements Runnable, TemperatureModelInter
                 Random rand = new Random();
                 currentTemperature += rand.nextInt(-1, 2);
                 System.out.println("Current temperature " + currentTemperature); //This is left for easier debugging
+                notifyObs(String.valueOf(currentTemperature), null);
                 //TODO: View should be updated
             } catch (Exception e) {
 
@@ -66,10 +67,11 @@ public class ReadOnlyTemperatureModel implements Runnable, TemperatureModelInter
     public void removeObs(Observer o){
         observers.remove(o);
     }
+
     @Override
-    public void notifyObs(String content){
+    public void notifyObs(String current, String target){
         for(interfaces.Observer o:observers){
-            o.update(content);
+            o.update(current, target);
         }
     }
 

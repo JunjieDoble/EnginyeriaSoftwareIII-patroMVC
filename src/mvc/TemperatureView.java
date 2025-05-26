@@ -33,17 +33,15 @@ public class TemperatureView implements ActionListener, Observer {
     private JLabel currentTemp; //Displays current temperature
 
     @Override
-    public void update(String content){
-        System.out.println(content);
+    public void update(String current, String target) {
+        currentTemp.setText(current);
+        tempOutputLabel.setText(target);
     }
 
     public TemperatureView(TemperatureControllerInterface controller, TemperatureModelInterface model) {
         /*TODO: Complete this constructor. Remember that the view is an observer of the model.*/
         this.controller = controller;
         this.model = model;
-
-        //Diria que no va aqui
-        //model.registerObs(this);
     }
 
     public void createView() {
@@ -158,6 +156,7 @@ public class TemperatureView implements ActionListener, Observer {
         setControlButtonsEnabled(false);
         startMenuItem.setEnabled(false);
         stopMenuItem.setEnabled(true);
+        tempOutputLabel.setText("offline");
     }
     public void enableControlMode() {
         setControlButtonsEnabled(true);
