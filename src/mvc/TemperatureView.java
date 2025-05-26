@@ -41,6 +41,8 @@ public class TemperatureView implements ActionListener, Observer {
         /*TODO: Complete this constructor. Remember that the view is an observer of the model.*/
         this.controller = controller;
         this.model = model;
+
+        //model.registerObs(this);
     }
 
     public void createView() {
@@ -175,5 +177,29 @@ public class TemperatureView implements ActionListener, Observer {
         } else if (source == decreaseTempButton) {
             controller.decreaseTemperature();
         }
+    }
+
+    public void enableMonitoringMode() {
+        setControlButtonsEnabled(false);
+        startMenuItem.setEnabled(false);
+        stopMenuItem.setEnabled(true);
+    }
+    public void enableControlMode() {
+        setControlButtonsEnabled(true);
+        startMenuItem.setEnabled(false);
+        stopMenuItem.setEnabled(true);
+    }
+    private void setControlButtonsEnabled(boolean enabled) {
+        setTempButton.setEnabled(enabled);
+        increaseTempButton.setEnabled(enabled);
+        decreaseTempButton.setEnabled(enabled);
+        tempTextField.setEnabled(enabled);
+    }
+    public void disableAll() {
+        setControlButtonsEnabled(false);
+        startMenuItem.setEnabled(true);
+        stopMenuItem.setEnabled(false);
+        tempOutputLabel.setText("offline");
+        currentTemp.setText("offline");
     }
 }
