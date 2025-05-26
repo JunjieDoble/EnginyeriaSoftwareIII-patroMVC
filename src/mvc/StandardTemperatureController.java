@@ -41,7 +41,7 @@ public class StandardTemperatureController implements TemperatureControllerInter
     *  */
 
 
-    /*TODO: Start method is invoked when the user clicks File->Stop
+    /*TODO: Stop method is invoked when the user clicks File->Stop
      * It should invoke model.off
      * It should also prepare the UI, enabling and disabling the right elements
      *
