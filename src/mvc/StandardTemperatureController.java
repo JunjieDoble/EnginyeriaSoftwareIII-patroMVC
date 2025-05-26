@@ -17,7 +17,10 @@ public class StandardTemperatureController implements TemperatureControllerInter
         this.view = new TemperatureView(this, model);
         view.createView();
         view.createControls();
+
         /*TODO: Prepare UI */
+        view.enableControlMode();
+        view.enableControlMode();
     }
 
     @Override

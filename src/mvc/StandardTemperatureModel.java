@@ -75,6 +75,9 @@ public class StandardTemperatureModel implements Runnable, TemperatureModelInter
     @Override
     public void setTargetTemperature(int temp) {
         targetTemperature = temp;
+
+        //notificar a la view?
+        notifyObs("Target temperature set to: " + targetTemperature);
     }
 
     @Override

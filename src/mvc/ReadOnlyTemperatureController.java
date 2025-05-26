@@ -5,14 +5,16 @@ import interfaces.Subject;
 import interfaces.TemperatureControllerInterface;
 import interfaces.TemperatureModelInterface;
 
+import java.awt.event.ActionEvent;
+
 public class ReadOnlyTemperatureController implements TemperatureControllerInterface {
-    /*TODO: Ensure that it implements the right interface*/
+    /*TODO: Ensure that it implements the right interface*/ //done
 
     private TemperatureView view;
     private TemperatureModelInterface model;
 
     public ReadOnlyTemperatureController(TemperatureModelInterface tempModel){
-       /*TODO: Create view and assign class attributes*/
+       /*TODO: Create view and assign class attributes*/ //done
         this.model = tempModel;
         this.view = new TemperatureView(this, model);
         view.createView();
@@ -30,16 +32,6 @@ public class ReadOnlyTemperatureController implements TemperatureControllerInter
     public void stop(){
         //do something
         model.off();
-    }
-
-    public void registerObs(Observer o){
-        //todo
-    }
-    public void removeObs(Observer o){
-        //todo
-    }
-    public void notifyObs(String content){
-        //todo
     }
 
     /*TODO: Complete with the interface methods. Some tips below.*/

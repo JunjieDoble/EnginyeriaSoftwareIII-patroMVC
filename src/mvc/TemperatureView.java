@@ -42,6 +42,7 @@ public class TemperatureView implements ActionListener, Observer {
         this.controller = controller;
         this.model = model;
 
+        //Diria que no va aqui
         //model.registerObs(this);
     }
 
@@ -83,9 +84,7 @@ public class TemperatureView implements ActionListener, Observer {
         int screenHeight = Toolkit.getDefaultToolkit().getScreenSize().height;
         viewFrame.setLocation((int) (screenWidth/2.5), (int)(screenHeight/2.5));
         viewFrame.setVisible(true);
-
     }
-
 
     public void createControls() {
         // Create all Swing components here
@@ -155,30 +154,6 @@ public class TemperatureView implements ActionListener, Observer {
 
     /*TODO: Add public methods to enable and disable UI elements
        (https://docs.oracle.com/en/java/javase/22/docs/api/java.desktop/javax/swing/JComponent.html#setEnabled(boolean))*/
-
-
-
-    public void actionPerformed(ActionEvent event) {
-        /*TODO: Complete this method to ensure that it processes the buttons clicked by the user
-        *  https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/util/EventObject.html#getSource()
-        * - increaseTempButton
-        * - decreaseTempButton
-        * - setTempButton
-        * */
-
-        Object source = event.getSource();
-
-        if(source == setTempButton){
-            int temp = Integer.parseInt(tempTextField.getText());
-            controller.setTemperature(temp);
-        }
-        else if (source == increaseTempButton) {
-            controller.increaseTemperature();
-        } else if (source == decreaseTempButton) {
-            controller.decreaseTemperature();
-        }
-    }
-
     public void enableMonitoringMode() {
         setControlButtonsEnabled(false);
         startMenuItem.setEnabled(false);
@@ -202,4 +177,26 @@ public class TemperatureView implements ActionListener, Observer {
         tempOutputLabel.setText("offline");
         currentTemp.setText("offline");
     }
+
+    public void actionPerformed(ActionEvent event) {
+        /*TODO: Complete this method to ensure that it processes the buttons clicked by the user
+        *  https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/util/EventObject.html#getSource()
+        * - increaseTempButton
+        * - decreaseTempButton
+        * - setTempButton
+        * */
+
+        Object source = event.getSource();
+
+        if(source == setTempButton){
+            int temp = Integer.parseInt(tempTextField.getText());
+            controller.setTemperature(temp);
+        }
+        else if (source == increaseTempButton) {
+            controller.increaseTemperature();
+        } else if (source == decreaseTempButton) {
+            controller.decreaseTemperature();
+        }
+    }
+
 }
